@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+
+    <div id="countdown_clock_div">
+        <h1 id="countdown_title">Countdown until </h1>
+        <h2 id="countdown_clock">00d:24hs</h2>
+    </div>
+
+    <div id="choose_date_div">
+        <form id="choose_date_form">
+            <p>Change the date:</p>
+            <label for="date_name">Date name:</label>
+            <input id="date_name_input" type="text" name="date_name" placeholder="Christmas" maxlength="20" required>
+            <label for="date_date">Date:</label>
+            <input id="date_input" type="date" name="date_date" required>
+            <input id="submit_date_name" type="submit">
+            
+        </form>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
