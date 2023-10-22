@@ -1,0 +1,6 @@
+body {
+    background: rgb(52,63,130);
+    background: linear-gradient(0deg, rgba(52,63,130,1) 0%, rgba(86,45,139,1) 100%);
+    background-repeat: no-repeat;
+    color: aliceblue;
+}
