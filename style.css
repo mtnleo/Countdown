@@ -1,7 +1,33 @@
 body {
+    text-align: center;
     background: rgb(52,63,130);
     background: linear-gradient(0deg, rgba(52,63,130,1) 0%, rgba(86,45,139,1) 100%);
     background-repeat: no-repeat;
     color: aliceblue;
     font-family: "roboto", sans-serif;
+    height: 100vh;
+}
+
+#countdown_clock {
+    font-size: 7rem;
+    text-shadow: 1, 1, 1, 1;
+}
+
+.center {
+    display: inline-block;
+    width: 50%;
+    padding: 1px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    margin: 1rem;
+}
+
+div {
+    height: 80vh;
+    display: block;
 }
