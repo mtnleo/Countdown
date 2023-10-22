@@ -1,24 +1,28 @@
 let countdown_date = new Date(2024,0,1); // new year's as default
 let countdown_name = "New Year's";
 
-//updateCountdown(countdown_date, countdown_name);
+countdown_interval = setInterval(updateCountdown, 1000, countdown_date, countdown_name);
+
 // Get the submit
-const submit = document.getElementById("submit_date_name");
+const submit = document.getElementById("choose_date_form");
 
 submit.addEventListener("submit", (event) => {
-    event.preventDefault();
+    event.preventDefault(); 
 
     countdown_name = document.getElementById("date_name_input").value;
-    countdown_date = document.getElementById("date_input").value;
+    countdown_date = new Date(document.getElementById("date_input").value);  
 
     updateCountdown(countdown_date, countdown_name);
-    
 
-    });
+    if (countdown_interval) {
+        clearInterval(countdown_interval);
+    }
+
+    countdown_interval = setInterval(updateCountdown, 1000, countdown_date, countdown_name);
+});
 
 
 function updateCountdown(cd_date, cd_name) {
-    console.log("runs");
     document.getElementById("countdown_title").innerHTML = "Countdown until " + cd_name;
     document.getElementById("countdown_clock").innerHTML = getCountdownString(getDateDifference(cd_date)); 
 }
@@ -61,10 +65,33 @@ function getCountdownString(diff_answer) {
         }
     }
 
-    text = text + diff_answer[1] + " days; ";
-    text = text + diff_answer[2] + ":" + diff_answer[3] + ":" + diff_answer[4];
+    if (diff_answer[1] < 10) {
+        text = text + "0" + diff_answer[1] + " days; ";
+    } 
+    else {
+        text = text + diff_answer[1] + " days; ";
+    }
+    
+    if (diff_answer[2] < 10) {
+        text = text + "0" + diff_answer[2] + ":";
+    }
+    else {
+        text = text + diff_answer[2] + ":";
+    }
+
+    if (diff_answer[3] < 10) {
+        text = text + "0" + diff_answer[3] + ":";
+    }
+    else {
+        text = text + diff_answer[3]+ ":";
+    }
+
+    if (diff_answer[4] < 10) {
+        text = text + "0" + diff_answer[4];
+    }
+    else {
+        text = text + diff_answer[4];
+    }
 
     return text;
 }
-
-setInterval(updateCountdown, 1000, countdown_date, countdown_name);
